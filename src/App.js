@@ -1,8 +1,8 @@
-import './App.css';
 import BlogList from './BlogList';
 import Blog from './Blog';
 import NavBar from './NavBar';
 import {useState, useEffect} from 'react';
+import "bootstrap/dist/css/bootstrap.min.css/";
 
 import {
   BrowserRouter as Router,
@@ -12,13 +12,9 @@ import {
 
 function App() {
 
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: 'First blog title',
-      body: 'First text body',
-    }
-  ])
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(()=>{
     fetch('http://jsonplaceholder.typicode.com/posts?_start=10&_limit=10', {
@@ -29,6 +25,7 @@ function App() {
   })
     .then((response) => response.json())
     .then((json) => setPosts(json));
+    setIsLoading(false);
   }, [])
 
   console.log(posts)
@@ -47,6 +44,8 @@ function App() {
           <Blog posts = {posts}/>
         </Route>
       </div>
+
+      {isLoading && <div>Loading...</div>}
       </Switch>
     </Router>
     

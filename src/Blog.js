@@ -13,7 +13,6 @@ export default function Blog({posts}) {
 
     return (
         <div>
-            <NavBar/>
             {isPending && <div>Loading</div>}
             {error && <div> {error} </div>}
 
