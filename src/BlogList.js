@@ -7,15 +7,16 @@ export default function BlogList({posts}) {
             
             {
                 posts.map((post, key) => (
-                <div>
-                    {/* <Link to="/blog/"><h3>{post.title}</h3> </Link> */}
-
+                <div style={{width:'70%', textAlign:'center', margin: 'auto'}}>
                     
                     <Link
+                    style={{textDecoration:'none'}}
                     to={`/blog/${post.id}`}
-                    key={key}>{post.title} </Link>
+                    key={key}>
+                        <h3>{post.title}</h3> 
+                    </Link>
 
-                   <p> { post.body} *** </p> 
+                   <p> { post.body} </p> 
                    <hr/>
                 </div>
                 ))

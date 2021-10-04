@@ -1,6 +1,5 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
-import NavBar from './NavBar'
 import useFetch from './hook/useFetch';
 
 export default function Blog({posts}) {

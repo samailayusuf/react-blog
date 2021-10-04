@@ -3,6 +3,7 @@ import Blog from './Blog';
 import NavBar from './NavBar';
 import {useState, useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css/";
+import "./index.css";
 
 import {
   BrowserRouter as Router,
@@ -36,13 +37,17 @@ function App() {
     <Router>
       <Switch>
       <div className="App">
-        <NavBar/> 
+        <NavBar/>
+
+      <div className="container" >
         <Route path="/" exact>
           <BlogList posts = {posts}/>
         </Route>
         <Route path="/blog/:id">
           <Blog posts = {posts}/>
         </Route>
+      </div>
+
       </div>
 
       {isLoading && <div>Loading...</div>}
