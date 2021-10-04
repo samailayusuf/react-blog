@@ -44,7 +44,7 @@ function App() {
           <BlogList posts = {posts}/>
         </Route>
         <Route path="/blog/:id">
-          <Blog posts = {posts}/>
+          <Blog />
         </Route>
       </div>
 
